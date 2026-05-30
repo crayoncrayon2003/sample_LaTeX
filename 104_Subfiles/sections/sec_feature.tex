@@ -1,0 +1,23 @@
+% sections/sec_feature.tex
+%
+% subfiles パッケージのサブファイル
+% \documentclass[メインファイルへの相対パス]{subfiles} と書くことで
+% このファイル単独でもコンパイル可能になる
+
+\documentclass[../104_Subfiles.tex]{subfiles}
+
+\begin{document}
+
+\section{\texttt{subfiles} の特徴}
+
+\texttt{subfiles} パッケージを使うと、各サブファイルが
+\textbf{単独でもコンパイルできる}ようになります。
+
+\begin{itemize}
+  \item メインファイルからは \texttt{\textbackslash subfile\{...\}} で読み込む
+  \item サブファイル単体でコンパイルすると、メインのプリアンブルが適用される
+  \item \texttt{\textbackslash input} / \texttt{\textbackslash include} との最大の違いは
+        \textbf{サブファイル単独コンパイルの可否}
+\end{itemize}
+
+\end{document}

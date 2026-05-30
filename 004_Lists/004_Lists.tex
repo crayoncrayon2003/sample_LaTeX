@@ -1,0 +1,107 @@
+% !TEX program = lualatex
+\documentclass[lualatex,ja=standard]{bxjsarticle}
+
+\usepackage{enumitem}  % リストのカスタマイズ
+
+\title{リストのサンプル}
+\author{LaTeX サンプル}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+% -------------------------------------------------------------------
+% itemize: 箇条書き（黒丸）
+% -------------------------------------------------------------------
+\section{itemize: 箇条書き}
+
+\begin{itemize}
+  \item 項目1
+  \item 項目2
+  \item 項目3
+\end{itemize}
+
+% -------------------------------------------------------------------
+% enumerate: 番号付きリスト
+% -------------------------------------------------------------------
+\section{enumerate: 番号付きリスト}
+
+\begin{enumerate}
+  \item 最初の手順
+  \item 次の手順
+  \item 最後の手順
+\end{enumerate}
+
+% -------------------------------------------------------------------
+% description: 説明リスト
+% -------------------------------------------------------------------
+\section{description: 説明リスト}
+
+\begin{description}
+  \item[LaTeX]  文書組版システム
+  \item[BibTeX] 参考文献管理ツール
+  \item[TikZ]   LaTeX 用図形描画パッケージ
+\end{description}
+
+% -------------------------------------------------------------------
+% ネストされたリスト（最大4階層）
+% -------------------------------------------------------------------
+\section{ネストされたリスト}
+
+\begin{itemize}
+  \item レベル1
+    \begin{itemize}
+      \item レベル2
+        \begin{itemize}
+          \item レベル3
+            \begin{itemize}
+              \item レベル4（最深）
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+% enumerate のネスト（(a), (i) 等の形式に変化）
+\begin{enumerate}
+  \item 第1項
+    \begin{enumerate}
+      \item 第1-1項
+      \item 第1-2項
+    \end{enumerate}
+  \item 第2項
+\end{enumerate}
+
+% -------------------------------------------------------------------
+% enumitem パッケージによるカスタマイズ
+% -------------------------------------------------------------------
+\section{リストのカスタマイズ (enumitem)}
+
+% ラベルを変更
+\begin{enumerate}[label=\Roman*.]
+  \item ローマ数字 I
+  \item ローマ数字 II
+  \item ローマ数字 III
+\end{enumerate}
+
+\begin{enumerate}[label=(\alph*)]
+  \item アルファベット a
+  \item アルファベット b
+  \item アルファベット c
+\end{enumerate}
+
+% 間隔を詰めたリスト
+\begin{itemize}[noitemsep]
+  \item 間隔なし項目1
+  \item 間隔なし項目2
+  \item 間隔なし項目3
+\end{itemize}
+
+% 開始番号を途中から指定
+\begin{enumerate}[start=5]
+  \item 5番目から開始
+  \item 6番目
+  \item 7番目
+\end{enumerate}
+
+\end{document}

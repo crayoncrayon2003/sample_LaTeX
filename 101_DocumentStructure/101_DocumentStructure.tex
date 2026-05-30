@@ -1,0 +1,64 @@
+% !TEX program = lualatex
+\documentclass[lualatex,ja=standard]{bxjsarticle}
+
+% 目次のハイパーリンク設定
+\usepackage[hidelinks]{hyperref}
+
+\title{ドキュメント構造のサンプル}
+\author{LaTeX サンプル}
+\date{\today}
+
+\begin{document}
+
+\maketitle          % タイトルを出力
+\tableofcontents    % 目次を出力
+
+% -------------------------------------------------------------------
+% abstract: 概要
+% -------------------------------------------------------------------
+\begin{abstract}
+  このドキュメントは、LaTeX のドキュメント構造（見出し・目次・概要）を
+  示すサンプルです。
+\end{abstract}
+
+% -------------------------------------------------------------------
+% \section: 章レベルの見出し
+% -------------------------------------------------------------------
+\section{はじめに}
+
+LaTeX では \texttt{\textbackslash section} から \texttt{\textbackslash subsubsection}
+まで階層的な見出しを作成できます。
+
+\section{見出しの階層}
+
+\subsection{subsection: 節}
+
+\texttt{\textbackslash subsection} は section の下位レベルです。
+
+\subsubsection{subsubsection: 小節}
+
+\texttt{\textbackslash subsubsection} はさらに下位レベルです。
+
+\subsection{番号なし見出し}
+
+アスタリスクを付けると目次に載らない番号なし見出しになります。
+
+\section*{番号なし section}
+
+この見出しは目次に表示されません。
+
+% -------------------------------------------------------------------
+% \appendix: 付録
+% -------------------------------------------------------------------
+\appendix
+
+\section{付録A: 補足事項}
+
+\texttt{\textbackslash appendix} 以降の \texttt{\textbackslash section}
+はアルファベット（A, B, C ...）で採番されます。
+
+\section{付録B: 参考資料}
+
+付録の2番目のセクションです。
+
+\end{document}

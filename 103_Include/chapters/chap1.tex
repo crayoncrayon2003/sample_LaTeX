@@ -1,0 +1,18 @@
+% chapters/chap1.tex
+% \include で読み込まれるファイル
+% \begin{document} は書かない
+
+\chapter{\texttt{\textbackslash include} の基本}
+
+\texttt{\textbackslash include\{ファイル名\}} はファイルの内容を展開し、
+前後に\textbf{改ページを挿入}します。
+これにより、各章が必ず新しいページから始まります。
+
+\section{\texttt{\textbackslash include} の特徴}
+
+\begin{itemize}
+  \item ドキュメント本文（\texttt{\textbackslash begin\{document\}} 以降）でのみ使用可能
+  \item 前後に自動で改ページが入る
+  \item ネストは不可（\texttt{\textbackslash include} したファイル内では使えない）
+  \item \texttt{\textbackslash includeonly} と組み合わせて選択コンパイルができる
+\end{itemize}

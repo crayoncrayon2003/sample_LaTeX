@@ -1,0 +1,112 @@
+% !TEX program = lualatex
+\documentclass[lualatex,ja=standard]{bxjsarticle}
+
+\usepackage{amsmath}
+\usepackage[hidelinks]{hyperref}
+\usepackage{tikz}
+
+\title{相互参照のサンプル}
+\author{LaTeX サンプル}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+% -------------------------------------------------------------------
+% 参照先の定義（ここでラベルを貼る）
+% -------------------------------------------------------------------
+\section{数式}
+\label{sec:math}
+
+\begin{equation}
+  e^{i\pi} + 1 = 0
+  \label{eq:euler}
+\end{equation}
+
+\begin{equation}
+  \int_0^1 x^2 \, dx = \frac{1}{3}
+  \label{eq:integral}
+\end{equation}
+
+\section{図}
+\label{sec:fig}
+
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}
+    \draw[thick, fill=green!30] (0,0) -- (2,0) -- (1,1.7) -- cycle;
+    \node at (1, -0.3) {三角形};
+  \end{tikzpicture}
+  \caption{サンプルの三角形}
+  \label{fig:triangle}
+\end{figure}
+
+\section{表}
+\label{sec:tab}
+
+\begin{table}[h]
+  \centering
+  \caption{サンプルの表}
+  \label{tab:sample}
+  \begin{tabular}{|l|r|}
+    \hline
+    項目 & 値 \\
+    \hline
+    A    & 10 \\
+    B    & 20 \\
+    \hline
+  \end{tabular}
+\end{table}
+
+% -------------------------------------------------------------------
+% 参照のまとめ（ここで一気に参照する）
+% -------------------------------------------------------------------
+\section{相互参照}
+\label{sec:ref}
+
+上で定義したラベルをここでまとめて参照します。
+
+\subsection{\texttt{\textbackslash ref} と \texttt{\textbackslash pageref}}
+
+\texttt{\textbackslash ref\{キー\}} で番号を、\texttt{\textbackslash pageref\{キー\}} でページ番号を参照します。
+
+\begin{itemize}
+  \item セクション参照: \ref{sec:math} 節（\pageref{sec:math} ページ）
+  \item 数式参照: 式 \ref{eq:euler}
+  \item 図参照: 図 \ref{fig:triangle}
+  \item 表参照: 表 \ref{tab:sample}
+\end{itemize}
+
+\subsection{\texttt{\textbackslash eqref}（数式専用）}
+
+\texttt{\textbackslash eqref} は数式番号を括弧付きで参照します。
+
+\begin{itemize}
+  \item 式~\eqref{eq:euler} はオイラーの等式
+  \item 式~\eqref{eq:integral} は定積分の例
+\end{itemize}
+
+\subsection{\texttt{\textbackslash autoref}（種別を自動付与）}
+
+\texttt{\textbackslash autoref} は「節」「図」「表」などのプレフィックスを自動で付加します。
+
+\begin{itemize}
+  \item \autoref{sec:math}
+  \item \autoref{fig:triangle}
+  \item \autoref{tab:sample}
+  \item \autoref{eq:euler}
+\end{itemize}
+
+\subsection{\texttt{\textbackslash nameref}（セクション名で参照）}
+
+\texttt{\textbackslash nameref} はセクション番号の代わりにセクション名を表示します。
+
+\begin{itemize}
+  \item \nameref{sec:math}（\autoref{sec:math}）
+  \item \nameref{sec:fig}（\autoref{sec:fig}）
+  \item \nameref{sec:tab}（\autoref{sec:tab}）
+\end{itemize}
+
+\end{document}

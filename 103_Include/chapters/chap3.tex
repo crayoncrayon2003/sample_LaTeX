@@ -1,0 +1,27 @@
+% chapters/chap3.tex
+
+\chapter{使い分けのまとめ}
+
+\section{どちらを使うか}
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{lll}
+    \hline
+    用途 & 推奨コマンド & 理由 \\
+    \hline
+    マクロ・設定の分割    & \texttt{\textbackslash input}   & プリアンブルで使えるため \\
+    節（section）の分割   & \texttt{\textbackslash input}   & 改ページなしで連続するため \\
+    章（chapter）の分割   & \texttt{\textbackslash include} & 章ごとに改ページが自然なため \\
+    \hline
+  \end{tabular}
+  \caption{\texttt{\textbackslash input} と \texttt{\textbackslash include} の使い分け}
+\end{table}
+
+\section{\texttt{\textbackslash includeonly} の使い方}
+
+\begin{enumerate}
+  \item 通常は \texttt{\textbackslash includeonly} をコメントアウトして全章コンパイル
+  \item 特定の章を編集するときだけ \texttt{\textbackslash includeonly} を有効にする
+  \item 作業が終わったら再度コメントアウトして全章コンパイル
+\end{enumerate}

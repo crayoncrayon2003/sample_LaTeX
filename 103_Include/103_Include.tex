@@ -1,0 +1,27 @@
+% !TEX program = lualatex
+\documentclass[lualatex,ja=standard]{bxjsreport}
+
+\title{\texttt{\textbackslash include} と \texttt{\textbackslash includeonly}}
+\author{LaTeX サンプル}
+\date{\today}
+
+% -------------------------------------------------------------------
+% \includeonly: ここに書いたファイルだけをコンパイルする
+% 章番号・ページ番号・相互参照は全章分を保ったまま
+% 大きな文書で特定の章だけ確認したいときに使う
+%
+% 全章コンパイルするときはコメントアウト:
+% \includeonly{chapters/chap1,chapters/chap2,chapters/chap3}
+% -------------------------------------------------------------------
+\includeonly{chapters/chap1,chapters/chap2,chapters/chap3}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\include{chapters/chap1}
+\include{chapters/chap2}
+\include{chapters/chap3}
+
+\end{document}

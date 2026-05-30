@@ -1,0 +1,19 @@
+% chapters/chap2.tex
+
+\chapter{\texttt{\textbackslash includeonly} による選択コンパイル}
+
+\texttt{\textbackslash includeonly\{ファイル1,ファイル2,...\}} をプリアンブルに書くと、
+指定したファイルだけがコンパイルされます。
+
+\section{選択コンパイルの利点}
+
+大きな文書で作業するとき、全章をコンパイルすると時間がかかります。
+\texttt{\textbackslash includeonly} を使えば、
+\textbf{編集中の章だけ}を素早く確認できます。
+
+\section{章番号・ページ番号の保持}
+
+\texttt{\textbackslash includeonly} で一部の章だけコンパイルしても、
+章番号・ページ番号・相互参照の番号は\textbf{全章分の情報が保たれます}。
+これは \texttt{\textbackslash include} が各ファイルに対して
+個別の \texttt{.aux} ファイルを生成しているためです。

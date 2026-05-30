@@ -1,0 +1,72 @@
+% !TEX program = lualatex
+\documentclass[lualatex,ja=standard]{bxjsarticle}
+
+% biblatex を使う場合（より現代的な方法）
+% \usepackage[backend=biber, style=authoryear]{biblatex}
+% \addbibresource{references.bib}
+
+\title{参考文献のサンプル}
+\author{LaTeX サンプル}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+% -------------------------------------------------------------------
+% 文献の引用
+% -------------------------------------------------------------------
+\section{文献の引用}
+
+BibTeX を使った参考文献管理の手順:
+
+\begin{enumerate}
+  \item \texttt{references.bib} に文献情報を記述する
+  \item \texttt{\textbackslash cite\{キー\}} で本文中に引用する
+  \item \texttt{\textbackslash bibliography} と \texttt{\textbackslash bibliographystyle} を指定する
+  \item \texttt{lualatex} → \texttt{bibtex} → \texttt{lualatex} × 2 の順でコンパイルする
+\end{enumerate}
+
+Knuth の \TeX\ に関する著作\cite{knuth1984} は組版の分野で非常に重要です。
+また、Lamport による \LaTeX\ の解説書\cite{lamport1994} は入門書として広く読まれています。
+Goossens ら\cite{goossens1993} による参考書も有用です。
+
+% 複数同時引用
+複数の文献\cite{knuth1984, lamport1994} を同時に引用することもできます。
+
+% -------------------------------------------------------------------
+% 引用コマンドの種類
+% -------------------------------------------------------------------
+\section{引用コマンドの種類}
+
+\begin{description}
+  \item[\texttt{\textbackslash cite\{key\}}] 基本的な引用: \cite{knuth1984}
+  \item[\texttt{\textbackslash cite[p.~10]\{key\}}] ページ番号付き引用: \cite[p.~10]{lamport1994}
+  \item[\texttt{\textbackslash nocite\{key\}}] 本文未引用でも参考文献一覧に載せる
+  \item[\texttt{\textbackslash nocite\{*\}}] .bib 内の全文献を一覧に出力
+\end{description}
+
+% \nocite{*} を有効にすると .bib 内の全文献が出力される
+% \nocite{*}
+
+% -------------------------------------------------------------------
+% 参考文献スタイル
+% -------------------------------------------------------------------
+\section{参考文献スタイル (bibliographystyle)}
+
+代表的なスタイル:
+\begin{description}
+  \item[\texttt{plain}]     著者名・タイトル順でソート（番号付き）
+  \item[\texttt{alpha}]     著者名略称＋年で引用（例: Knu84）
+  \item[\texttt{abbrv}]     \texttt{plain} を略称表記
+  \item[\texttt{unsrt}]     引用順にソート（番号付き）
+  \item[\texttt{jplain}]    日本語対応の plain スタイル
+\end{description}
+
+% -------------------------------------------------------------------
+% 参考文献一覧の出力
+% -------------------------------------------------------------------
+\bibliographystyle{plain}
+\bibliography{references}   % references.bib を参照
+
+\end{document}

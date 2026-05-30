@@ -1,0 +1,22 @@
+% !TEX program = lualatex
+\documentclass[lualatex,ja=standard]{bxjsarticle}
+
+\usepackage{subfiles}   % サブファイルパッケージ
+
+\title{\texttt{subfiles} パッケージ}
+\author{LaTeX サンプル}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+% -------------------------------------------------------------------
+% \subfile でサブファイルを読み込む
+% 各サブファイルは単独でもコンパイル可能
+% -------------------------------------------------------------------
+\subfile{sections/sec_feature}
+\subfile{sections/sec_usage}
+
+\end{document}

@@ -1,0 +1,115 @@
+% !TEX program = lualatex
+\documentclass[lualatex,ja=standard]{bxjsarticle}
+
+\usepackage{amsmath}
+\usepackage{amssymb}   % \mathbb（ℝ, ℕ など）
+\usepackage{xcolor}
+
+% -------------------------------------------------------------------
+% \newcommand: 引数なし
+% -------------------------------------------------------------------
+\newcommand{\myname}{LaTeX サンプルユーザー}
+\newcommand{\R}{\mathbb{R}}          % 実数集合 ℝ
+\newcommand{\N}{\mathbb{N}}          % 自然数集合 ℕ
+\newcommand{\highlight}[1]{\textbf{\textcolor{red}{#1}}}  % 1引数
+
+% -------------------------------------------------------------------
+% \newcommand: 引数あり
+% -------------------------------------------------------------------
+% #1 = 分子, #2 = 分母
+\newcommand{\myfrac}[2]{\dfrac{#1}{#2}}
+
+% デフォルト引数付き（オプション引数）
+% #1 = 省略可能なオプション（デフォルト "blue"）, #2 = テキスト
+\newcommand{\colortext}[2][blue]{\textcolor{#1}{#2}}
+
+% -------------------------------------------------------------------
+% \newenvironment: 独自環境
+% -------------------------------------------------------------------
+\newenvironment{mybox}
+  {\begin{center}
+   \begin{tabular}{|c|}
+   \hline
+   \begin{minipage}{0.85\linewidth}\smallskip\par\noindent\ignorespaces}
+  {\par\smallskip\end{minipage}\\
+   \hline\end{tabular}\end{center}}
+
+% -------------------------------------------------------------------
+% \renewcommand: 既存コマンドの上書き
+% -------------------------------------------------------------------
+% \epsilon をより見やすい \varepsilon に変更
+\renewcommand{\epsilon}{\varepsilon}
+
+\title{カスタムコマンドのサンプル}
+\author{\myname}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+% -------------------------------------------------------------------
+% 引数なしコマンド
+% -------------------------------------------------------------------
+\section{引数なしコマンド}
+
+著者は \texttt{\textbackslash myname} → \myname
+
+実数集合 $\R$、自然数集合 $\N$（\texttt{\textbackslash R}, \texttt{\textbackslash N}）
+
+% -------------------------------------------------------------------
+% 1引数コマンド
+% -------------------------------------------------------------------
+\section{1引数コマンド}
+
+\texttt{\textbackslash highlight\{テキスト\}} → \highlight{重要な箇所}
+
+% -------------------------------------------------------------------
+% 2引数コマンド
+% -------------------------------------------------------------------
+\section{2引数コマンド}
+
+\texttt{\textbackslash myfrac\{分子\}\{分母\}} → $\myfrac{a+b}{c-d}$
+
+% -------------------------------------------------------------------
+% デフォルト引数付きコマンド
+% -------------------------------------------------------------------
+\section{デフォルト引数付きコマンド}
+
+オプション省略（デフォルト blue）: \colortext{青いテキスト}
+
+オプション指定: \colortext[red]{赤いテキスト}
+
+オプション指定: \colortext[purple]{紫のテキスト}
+
+% -------------------------------------------------------------------
+% 独自環境
+% -------------------------------------------------------------------
+\section{独自環境}
+
+\begin{mybox}
+  これは \texttt{mybox} 環境で囲まれたテキストです。
+  枠線付きの中央揃えボックスとして表示されます。
+\end{mybox}
+
+% -------------------------------------------------------------------
+% \renewcommand の効果
+% -------------------------------------------------------------------
+\section{renewcommand}
+
+\texttt{\textbackslash epsilon} を \texttt{\textbackslash varepsilon} に上書きしたため、
+$\epsilon$ が自動的に \(\varepsilon\) の形状になります。
+
+% -------------------------------------------------------------------
+% \newcommand vs \providecommand
+% -------------------------------------------------------------------
+\section{providecommand}
+
+\texttt{\textbackslash providecommand} は、コマンドが未定義のときだけ定義します。
+既に定義済みの場合は何もしません。パッケージとの競合回避に便利です。
+
+\providecommand{\etal}{\textit{et al.}}
+
+Smith \etal (2023) はその例です。
+
+\end{document}

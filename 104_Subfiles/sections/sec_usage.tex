@@ -1,0 +1,46 @@
+% sections/sec_usage.tex
+
+\documentclass[../104_Subfiles.tex]{subfiles}
+
+\begin{document}
+
+\section{\texttt{subfiles} の使い方}
+
+\subsection{メインファイルの書き方}
+
+メインファイルのプリアンブルに \texttt{\textbackslash usepackage\{subfiles\}} を追加し、
+本文中で \texttt{\textbackslash subfile\{パス\}} を使います。
+
+\subsection{サブファイルの書き方}
+
+サブファイルの先頭に以下を書きます:
+
+\begin{verbatim}
+\documentclass[../メインファイル.tex]{subfiles}
+\begin{document}
+  ... 内容 ...
+\end{document}
+\end{verbatim}
+
+メインファイルから読み込まれるときは
+\texttt{\textbackslash documentclass} 行が無視され、
+メインのプリアンブルが適用されます。
+
+\subsection{3つの方法の比較}
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{llll}
+    \hline
+    & \texttt{\textbackslash input} & \texttt{\textbackslash include} & \texttt{subfiles} \\
+    \hline
+    単独コンパイル    & 不可     & 不可     & \textbf{可} \\
+    プリアンブル共有  & 手動     & 手動     & \textbf{自動} \\
+    改ページ          & なし     & あり     & なし \\
+    \texttt{\textbackslash includeonly} 対応 & 非対応 & 対応 & 非対応 \\
+    \hline
+  \end{tabular}
+  \caption{3つのファイル分割方法の比較}
+\end{table}
+
+\end{document}

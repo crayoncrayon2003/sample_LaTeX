@@ -1,0 +1,88 @@
+% !TEX program = lualatex
+\documentclass[lualatex,ja=standard]{bxjsarticle}
+
+\usepackage{xcolor}   % テキストカラー
+\usepackage{ulem}     % 取り消し線・波線下線
+
+\title{テキスト装飾のサンプル}
+\author{LaTeX サンプル}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+% -------------------------------------------------------------------
+% 基本的な文字装飾
+% -------------------------------------------------------------------
+\section{基本装飾}
+
+\textbf{太字 (bold)}
+
+\textit{イタリック (italic)}
+
+\underline{下線 (underline)}
+
+\emph{強調 (emph)} % 通常文中はイタリック、イタリック文中は直立体
+
+\sout{取り消し線 (strikethrough)} % ulem パッケージ必要
+
+\uwave{波線下線 (wavy underline)} % ulem パッケージ必要
+
+% -------------------------------------------------------------------
+% フォントファミリー
+% -------------------------------------------------------------------
+\section{フォントファミリー}
+
+\textrm{ローマン体 (roman)} % デフォルト
+
+\textsf{サンセリフ体 (sans-serif)}
+
+\texttt{等幅フォント (typewriter / monospace)}
+
+% -------------------------------------------------------------------
+% フォントサイズ
+% -------------------------------------------------------------------
+\section{フォントサイズ}
+
+{\tiny       tiny}
+{\scriptsize scriptsize}
+{\footnotesize footnotesize}
+{\small      small}
+{\normalsize normalsize（標準）}
+{\large      large}
+{\Large      Large}
+{\LARGE      LARGE}
+{\huge       huge}
+{\Huge       Huge}
+
+% -------------------------------------------------------------------
+% テキストカラー（xcolor パッケージ）
+% -------------------------------------------------------------------
+\section{テキストカラー}
+
+\textcolor{red}{赤}
+\textcolor{blue}{青}
+\textcolor{green}{緑}
+\textcolor{orange}{オレンジ}
+\textcolor{purple}{紫}
+
+% RGB で任意の色を指定
+\textcolor[RGB]{0,128,128}{カスタムカラー (teal)}
+
+% 背景色
+\colorbox{yellow}{背景色: 黄色}
+\colorbox{cyan}{\textcolor{white}{背景色: シアン + 白文字}}
+
+% -------------------------------------------------------------------
+% 組み合わせ
+% -------------------------------------------------------------------
+\section{装飾の組み合わせ}
+
+\textbf{\textit{太字 + イタリック}}
+
+\textbf{\textcolor{red}{太字 + 赤}}
+
+{\Large \textbf{\textcolor{blue}{大きい + 太字 + 青}}}
+
+\end{document}

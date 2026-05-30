@@ -1,0 +1,112 @@
+% !TEX program = lualatex
+\documentclass[lualatex,ja=standard]{bxjsarticle}
+
+\usepackage{booktabs}   % \toprule, \midrule, \bottomrule
+\usepackage{multirow}   % セルの縦結合
+\usepackage{xcolor}     % セルの色
+\usepackage{colortbl}   % 表のセルに色を付ける
+
+\title{表のサンプル}
+\author{LaTeX サンプル}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+% -------------------------------------------------------------------
+% 基本的な表
+% -------------------------------------------------------------------
+\section{基本的な表}
+
+\begin{tabular}{|l|c|r|}
+  \hline
+  左寄せ & 中央 & 右寄せ \\
+  \hline
+  Apple  & 100  & 円 \\
+  Banana &  80  & 円 \\
+  Cherry & 200  & 円 \\
+  \hline
+\end{tabular}
+
+% -------------------------------------------------------------------
+% booktabs: 罫線なし・洗練されたスタイル
+% -------------------------------------------------------------------
+\section{booktabs スタイル}
+
+\begin{table}[h]
+  \centering
+  \caption{果物の価格一覧}
+  \begin{tabular}{lrr}
+    \toprule
+    名前    & 単価（円） & 在庫数 \\
+    \midrule
+    Apple   & 100        & 50 \\
+    Banana  &  80        & 30 \\
+    Cherry  & 200        & 20 \\
+    \midrule
+    合計    & ---        & 100 \\
+    \bottomrule
+  \end{tabular}
+  \label{tab:fruits}
+\end{table}
+
+% -------------------------------------------------------------------
+% 列の結合（\multicolumn）
+% -------------------------------------------------------------------
+\section{列の結合 (multicolumn)}
+
+\begin{tabular}{|c|c|c|}
+  \hline
+  \multicolumn{3}{|c|}{3列をまとめたヘッダー} \\
+  \hline
+  列A & 列B & 列C \\
+  \hline
+  1   & 2   & 3 \\
+  4   & 5   & 6 \\
+  \hline
+\end{tabular}
+
+% -------------------------------------------------------------------
+% 行の結合（\multirow）
+% -------------------------------------------------------------------
+\section{行の結合 (multirow)}
+
+\begin{tabular}{|c|c|c|}
+  \hline
+  \multirow{2}{*}{結合セル} & A1 & B1 \\
+  \cline{2-3}
+                            & A2 & B2 \\
+  \hline
+\end{tabular}
+
+% -------------------------------------------------------------------
+% セルの色付け（xcolor + colortbl）
+% -------------------------------------------------------------------
+\section{セルの色付け}
+
+\begin{tabular}{|l|c|c|}
+  \hline
+  \rowcolor{gray!30} 名前 & 数値1 & 数値2 \\
+  \hline
+  行1 & \cellcolor{yellow!50} 10 & 20 \\
+  行2 & 30 & \cellcolor{cyan!30} 40 \\
+  行3 & 50 & 60 \\
+  \hline
+\end{tabular}
+
+% -------------------------------------------------------------------
+% 列幅の固定（p{幅}）
+% -------------------------------------------------------------------
+\section{列幅の固定}
+
+\begin{tabular}{|l|p{6cm}|}
+  \hline
+  項目   & 説明 \\
+  \hline
+  LaTeX  & 文書組版システム。高品質な数式や図表を含む文書を作成できます。 \\
+  BibTeX & 参考文献の管理ツール。.bib ファイルで文献情報を管理します。 \\
+  \hline
+\end{tabular}
+
+\end{document}
