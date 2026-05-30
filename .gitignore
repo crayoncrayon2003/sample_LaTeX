@@ -1,0 +1,19 @@
+# LaTeX 中間ファイル
+/**/*.aux
+/**/*.log
+/**/*.gz
+/**/*.toc
+/**/*.out
+/**/*.fls
+/**/*.fdb_latexmk
+/**/*.dvi
+/**/*.bbl
+/**/*.blg
+/**/*.idx
+/**/*.ind
+/**/*.ilg
+/**/*.lof
+/**/*.lot
+
+# PDF 成果物
+/**/*.pdf
